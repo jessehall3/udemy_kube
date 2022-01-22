@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: position-tracker
-          image: richardchesterwood/k8s-fleetman-position-tracker:release2
+          image: richardchesterwood/k8s-fleetman-position-tracker:release3
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
@@ -87,23 +87,3 @@ spec:
 
 ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: webapp
-spec:
-  selector:
-    matchLabels:
-      app: webapp
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: webapp
-    spec:
-      containers:
-        - name: webapp
-          image: richardchesterwood/k8s-fleetman-webapp-angular:release2
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: production-microservice
